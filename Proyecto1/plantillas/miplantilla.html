@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Plantilla</title>
+</head>
+<body>
+<h1>Esta es la plantilla</h1>
+<p>El nombre de la persona es: {{nombre_persona}} y el apellido es: {{apellido_persona}}</p>
+<p>Momento de accion es: {{momento_actual}}</p>
+<p><strong>Temas del curso</strong></p>
+
+<p>{{temas.0}}</p>
+
+<p>
+	
+	{% for elTema in temas %}
+
+
+	<li>{{elTema}}</</li>
+
+
+
+	{% endfor %}
+
+
+
+</p>
+
+
+</body>
+</html>
