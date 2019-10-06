@@ -29,6 +29,7 @@ def saludo2(request): #primera vista
 	#documento=plantilla.render(contexto)
 	documento=doc_externo.render(contexto)
 	return HttpResponse(documento)
+	#return HttpResponse(request,'miplantilla','{"nombre_persona":p1.nombre,"apellido_persona":p1.apellido, "momento_actual":ahora,"temas":temas_del_curso1}')
 
 
 
