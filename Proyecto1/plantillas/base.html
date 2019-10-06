@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+{% include "superior/barra.html" %}
+	<h1 style="background-color: darkolivegreen; color:white; text-align: center">Israel jimenez</h1>
+	<h3>Cursos de programacion ofimatica y diseño web</h3>
+
+	{% block content %} {% endblock %}
+
+	<p style="background-color: darkolivegreen; color:white; text-align: center">Cursos gratuitos, gracias por tu visita</p>
+</body>
+</html>

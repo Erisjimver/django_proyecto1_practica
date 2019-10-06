@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import Template,Context
 from django.template import loader
 from django.template.loader import get_template# sirve para evitar usar loader al llamar a un template
+from django.shortcuts import render
 import datetime
 
 class Persona(object):
@@ -11,6 +12,13 @@ class Persona(object):
 		self.nombre=nombre
 		self.apellido=apellido
 
+def cursoC(request):
+	fecha_actual=datetime.datetime.now()
+	return render(request,"cursoC.html",{"dame_fecha":fecha_actual})
+
+def cursoCSS(request):
+	fecha_actual=datetime.datetime.now()
+	return render(request,"cursoCSS.html",{"dame_fecha":fecha_actual})
 
 
 def saludo2(request): #primera vista
@@ -28,7 +36,8 @@ def saludo2(request): #primera vista
 	contexto={"nombre_persona":p1.nombre,"apellido_persona":p1.apellido, "momento_actual":ahora,"temas":temas_del_curso}
 	#documento=plantilla.render(contexto)
 	documento=doc_externo.render(contexto)
-	return HttpResponse(documento)
+	#return HttpResponse(documento)
+	return render(request,"miplantilla.html",contexto)
 	#return HttpResponse(request,'miplantilla','{"nombre_persona":p1.nombre,"apellido_persona":p1.apellido, "momento_actual":ahora,"temas":temas_del_curso1}')
 
 
