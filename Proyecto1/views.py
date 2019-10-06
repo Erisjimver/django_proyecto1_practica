@@ -15,11 +15,12 @@ def saludo2(request): #primera vista
 	
 	p1=Persona(" Alumno Israel", " Jimenez")
 	temas_del_curso=["Plantillas","Modelos","Formularios","Vistas","Despliegue"]
+	temas_del_curso1=[]
 	ahora=datetime.datetime.now()
 	doc_externo=open("C:/Users/Home/django/Proyecto1/Proyecto1/plantillas/miplantilla.html")
 	plantilla=Template(doc_externo.read())
 	doc_externo.close()
-	contexto=Context({"nombre_persona":p1.nombre,"apellido_persona":p1.apellido, "momento_actual":ahora,"temas":temas_del_curso})
+	contexto=Context({"nombre_persona":p1.nombre,"apellido_persona":p1.apellido, "momento_actual":ahora,"temas":temas_del_curso1})
 	documento=plantilla.render(contexto)
 	return HttpResponse(documento)
 

@@ -5,24 +5,24 @@
 </head>
 <body>
 <h1>Esta es la plantilla</h1>
-<p>El nombre de la persona es: {{nombre_persona}} y el apellido es: {{apellido_persona}}</p>
+<p>El nombre de la persona es: {{nombre_persona.upper}} y el apellido es: {{apellido_persona}}</p>
 <p>Momento de accion es: {{momento_actual}}</p>
 <p><strong>Temas del curso</strong></p>
 
 <p>{{temas.0}}</p>
 
 <p>
+	{% if temas %}
+		{% for elTema in temas %}
+
+			<li>{{elTema}}</</li>
+
+		{% endfor %}
+
+	{% else %}
+		<p>No hay elementos para mostrar</p>
+	{% endif %}
 	
-	{% for elTema in temas %}
-
-
-	<li>{{elTema}}</</li>
-
-
-
-	{% endfor %}
-
-
 
 </p>
 
