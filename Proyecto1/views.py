@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.template import Template,Context
+from django.template import loader
+from django.template.loader import get_template# sirve para evitar usar loader al llamar a un template
 import datetime
 
 class Persona(object):
@@ -17,11 +19,15 @@ def saludo2(request): #primera vista
 	temas_del_curso=["Plantillas","Modelos","Formularios","Vistas","Despliegue"]
 	temas_del_curso1=[]
 	ahora=datetime.datetime.now()
-	doc_externo=open("C:/Users/Home/django/Proyecto1/Proyecto1/plantillas/miplantilla.html")
-	plantilla=Template(doc_externo.read())
-	doc_externo.close()
-	contexto=Context({"nombre_persona":p1.nombre,"apellido_persona":p1.apellido, "momento_actual":ahora,"temas":temas_del_curso1})
-	documento=plantilla.render(contexto)
+	#doc_externo=open("C:/Users/Home/django/Proyecto1/Proyecto1/plantillas/miplantilla.html")
+	#plantilla=Template(doc_externo.read())
+	#doc_externo.close()
+	doc_externo=get_template('miplantilla.html')
+
+	#contexto=Context({"nombre_persona":p1.nombre,"apellido_persona":p1.apellido, "momento_actual":ahora,"temas":temas_del_curso1})
+	contexto={"nombre_persona":p1.nombre,"apellido_persona":p1.apellido, "momento_actual":ahora,"temas":temas_del_curso}
+	#documento=plantilla.render(contexto)
+	documento=doc_externo.render(contexto)
 	return HttpResponse(documento)
 
 
